@@ -9,3 +9,24 @@ stages:
     - dataset/test.csv
     - dataset/train.csv
     - dataset/val.csv
+
+  train:
+    desc: Train the model
+    cmd: python3 src/train.py ${train.boost_rounds} ${train.learning_rate} ${train.max_depth}
+    deps:
+    - dataset/train.csv
+    - dataset/val.csv
+    - src/train.py
+    outs:
+    - models/model.bin
+    metrics:
+    - metrics/train_metrics.json:
+        cache: false
+    plots:
+    - plots/learning_curve.csv:
+        x: round
+        x_label: Boost Round
+        y: mlogloss
+        y_label: Multiclass Log Loss
+        title: Validation Loss over Time
+        cache: false
