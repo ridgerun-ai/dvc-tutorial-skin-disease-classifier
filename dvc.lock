@@ -1,0 +1,26 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python3 src/preprocess.py
+    deps:
+    - path: dataset/features.csv
+      hash: md5
+      md5: 1dcee5abb218130c155b007b7b710026
+      size: 25964
+    - path: src/preprocess.py
+      hash: md5
+      md5: 2aed617a48aa39f8f51b2f5a1d7ed73a
+      size: 802
+    outs:
+    - path: dataset/test.csv
+      hash: md5
+      md5: b1b46ddcf789f41af7df1495cf4f8ace
+      size: 2590
+    - path: dataset/train.csv
+      hash: md5
+      md5: a90d9ced81aa3549d6914aae97d135b9
+      size: 20440
+    - path: dataset/val.csv
+      hash: md5
+      md5: a9d4a17ebde88eb9042b981a48dddd9f
+      size: 2590
