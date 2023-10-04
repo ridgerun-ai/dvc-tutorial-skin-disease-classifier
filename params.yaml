@@ -4,4 +4,4 @@ train:
   max_depth: 10
 
 test:
-  threshold: 0.9
+  threshold: 0.3
