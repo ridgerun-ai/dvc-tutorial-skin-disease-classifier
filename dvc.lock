@@ -50,5 +50,29 @@ stages:
       size: 103567
     - path: plots/learning_curve.csv
       hash: md5
-      md5: af4e8943aa54df22a9d03beba1837211
-      size: 1190
+      md5: 604d95e82cef637fc33e086b7c9f9633
+      size: 1179
+  test:
+    cmd: python3 src/test.py 0.9
+    deps:
+    - path: dataset/test.csv
+      hash: md5
+      md5: b1b46ddcf789f41af7df1495cf4f8ace
+      size: 2590
+    - path: models/model.bin
+      hash: md5
+      md5: d5593445b9d5135e1097e8c8ae53df7c
+      size: 103567
+    - path: src/test.py
+      hash: md5
+      md5: 92a126c1e9a447f8a29c35ffd522a8c6
+      size: 1348
+    outs:
+    - path: metrics/test_metrics.json
+      hash: md5
+      md5: 22dfdb9bfc8efee54a3dd9301f9c86a3
+      size: 85
+    - path: plots/confusion_matrix.csv
+      hash: md5
+      md5: 10cda321ee47218c5aa9d73143a1b949
+      size: 209

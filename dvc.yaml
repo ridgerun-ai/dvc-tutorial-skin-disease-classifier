@@ -30,3 +30,21 @@ stages:
         y_label: Multiclass Log Loss
         title: Validation Loss over Time
         cache: false
+
+  test:
+    desc: Test the model
+    cmd: python3 src/test.py ${test.threshold}
+    deps:
+    - dataset/test.csv
+    - src/test.py
+    - models/model.bin
+    metrics:
+    - metrics/test_metrics.json:
+        cache: false
+    plots:
+    - plots/confusion_matrix.csv:
+        template: confusion_normalized
+        x: actual
+        y: predicted
+        title: Test Confusion Matrix
+        cache: false
